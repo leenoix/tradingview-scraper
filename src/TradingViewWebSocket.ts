@@ -28,6 +28,7 @@ export class TradingViewWebSocket extends (EventEmitter as new () => TypedEmitte
       origin: 'https://data.tradingview.com'
     });
     this.ws.on('message', message => this.wsOnMessage(message.toString()));
+    this.ws.on('error', message => console.log('tradingview websocket error:', e));
     await this.tvSessionReady();
   }
 
